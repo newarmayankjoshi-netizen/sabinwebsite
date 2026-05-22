@@ -111,15 +111,16 @@ function renderStoredReviews() {
   const container = document.getElementById('user-reviews');
   if (!container) return;
   const reviews = getStoredReviews();
+  const visibleReviews = reviews.filter((review) => Number(review.rating) >= 4);
   container.innerHTML = '';
-  if (!reviews.length) {
+  if (!visibleReviews.length) {
     const empty = document.createElement('p');
     empty.className = 'review-empty';
-    empty.textContent = 'Be the first to leave a review for Sabin.';
+    empty.textContent = 'No 4-star or higher reviews are available yet.';
     container.appendChild(empty);
     return;
   }
-  reviews.slice().reverse().forEach((review) => {
+  visibleReviews.slice().reverse().forEach((review) => {
     container.appendChild(createReviewCard(review));
   });
 }
