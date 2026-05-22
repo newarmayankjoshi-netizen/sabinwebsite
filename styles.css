@@ -326,7 +326,7 @@ select {
   line-height: 1.4;
 }
 
-..review-form select {
+.review-form select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -395,10 +395,21 @@ select {
   background: #000;
 }
 
-.video-embed iframe {
+.video-embed iframe,
+.video-embed blockquote {
   width: 100%;
-  min-height: 380px;
+  min-height: 320px;
   border: none;
+}
+
+.video-embed iframe {
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .review-card {
