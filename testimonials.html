@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none';" />
   <title>Testimonials | Sabin Shrestha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,12 +12,14 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="index.html" class="logo">Sabin Shrestha</a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="testimonials.html">Testimonials</a>
+        <a href="videos.html">Videos</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -23,7 +27,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -82,20 +86,60 @@
         </div>
       </div>
     </section>
+
+    <section class="section-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Leave a review</span>
+          <h2>Share your experience with Sabin</h2>
+        </div>
+        <form id="review-form" class="review-form" novalidate>
+          <label>
+            Name
+            <input id="review-name" name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            Rating
+            <select id="review-rating" name="rating" required>
+              <option value="5">5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 star</option>
+            </select>
+          </label>
+          <label>
+            Review
+            <textarea id="review-message" name="message" rows="5" placeholder="Tell us about your experience" required></textarea>
+          </label>
+          <button type="submit" class="button button-primary">Submit review</button>
+        </form>
+
+        <div class="review-list" id="user-reviews"></div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>© 2026 Aro Real Estate</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p>© 2026 Sabin Shrestha</p>
+      <p class="footer-note">Licensed real estate agent in Australia. Information is indicative only and subject to change.</p>
     </div>
-  </footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="testimonials.html">Testimonials</a>      <a href="videos.html">Videos</a>      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
 

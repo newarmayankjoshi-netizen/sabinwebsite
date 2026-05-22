@@ -39,6 +39,29 @@ select {
   margin: 0 auto;
 }
 
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  margin: 1rem;
+  padding: 0.85rem 1.2rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-radius: 999px;
+  z-index: 20;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -213,6 +236,12 @@ select {
   object-fit: cover;
 }
 
+.agent-photo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .feature-cards {
   display: grid;
   gap: 1rem;
@@ -225,45 +254,6 @@ select {
   border-radius: 24px;
 }
 
-.shortcut-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.shortcut-card {
-  position: relative;
-  display: block;
-  min-height: 240px;
-  border-radius: 24px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.shortcut-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
-}
-
-.shortcut-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.7));
-}
-
-.shortcut-card span {
-  position: absolute;
-  left: 1.5rem;
-  bottom: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
 
 .feature-card h3 {
   margin: 0 0 0.75rem;
@@ -305,6 +295,133 @@ select {
   flex-direction: column;
   gap: 0.25rem;
   color: var(--muted);
+}
+
+.review-form {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  margin-top: 2rem;
+}
+
+.review-form label {
+  display: grid;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 0.95rem 1rem;
+  line-height: 1.4;
+}
+
+..review-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 1rem) calc(50% - 0.05rem), calc(100% - 0.75rem) calc(50% - 0.05rem);
+  background-size: 0.45rem 0.45rem;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+
+.review-form select option {
+  color: rgba(8, 16, 36, 0.95);
+  background: #ffffff;
+}
+
+.review-form select::-ms-expand {
+  display: none;
+}
+
+.review-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.video-card {
+  padding: 1.5rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.video-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.video-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 1rem 0 0.75rem;
+}
+
+.video-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.video-card a:hover {
+  text-decoration: underline;
+}
+
+.video-embed {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-embed iframe {
+  width: 100%;
+  min-height: 380px;
+  border: none;
+}
+
+.review-card {
+  padding: 1.5rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.review-card .testimonial-meta {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.review-card .rating {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.review-empty {
+  color: var(--muted);
+  font-size: 0.98rem;
 }
 
 .slider-controls {
@@ -419,6 +536,17 @@ select {
   color: var(--muted);
 }
 
+.footer-brand {
+  min-width: 240px;
+}
+
+.footer-note {
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
 .footer-links {
   display: flex;
   gap: 1rem;
@@ -437,12 +565,29 @@ select {
 }
 
 @media (max-width: 680px) {
-  .main-nav {
-    display: none;
+  .nav-wrap {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 0;
   }
 
-  .nav-wrap {
-    justify-content: space-between;
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+  }
+
+  .main-nav a {
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .hero h1 {

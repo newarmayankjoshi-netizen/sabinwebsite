@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none';" />
   <title>Sabin Shrestha | Real Estate Agent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,12 +12,14 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="index.html" class="logo">Sabin Shrestha</a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="testimonials.html">Testimonials</a>
+        <a href="videos.html">Videos</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -23,13 +27,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" id="home">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <span class="eyebrow">Residential sales | Truganina, Victoria</span>
         <h1>Sabin Shrestha</h1>
-        <p>Delivering exceptional real‑estate experiences built on trust, expertise, and results. I combine deep local insight with strategic marketing and negotiation to make every property journey profitable, effortless, and genuinely rewarding. Whether you’re buying your first home or investing, my goal is to turn your next move into a seamless success.</p>
+        <p>Delivering exceptional real-estate experiences built on trust, expertise, and results. I combine deep local insight with strategic marketing and negotiation to make every property journey profitable, effortless, and genuinely rewarding. Whether you're buying your first home or investing, my goal is to turn your next move into a seamless success.</p>
       </div>
     </section>
 
@@ -54,33 +58,6 @@
             <h3>Proven results</h3>
             <p>Focused on selling properties with care and clarity.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="quick-links section-dark">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">How can I help you?</span>
-          <h2>Start with the service you need</h2>
-        </div>
-        <div class="shortcut-grid">
-          <a href="buyer-enquiry.html" class="shortcut-card" style="background-image: url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=900&q=80')">
-            <div class="shortcut-overlay"></div>
-            <span>Buyer Enquiry</span>
-          </a>
-          <a href="appraisal.html" class="shortcut-card" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80')">
-            <div class="shortcut-overlay"></div>
-            <span>Appraisal Request</span>
-          </a>
-          <a href="recent-sales.html" class="shortcut-card" style="background-image: url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=900&q=80')">
-            <div class="shortcut-overlay"></div>
-            <span>Recent Sales</span>
-          </a>
-          <a href="contact.html" class="shortcut-card" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80')">
-            <div class="shortcut-overlay"></div>
-            <span>Contact me</span>
-          </a>
         </div>
       </div>
     </section>
@@ -141,17 +118,26 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
+  <div class="container footer-grid">
+    <div class="footer-brand">
       <p>© 2026 Sabin Shrestha</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="contact.html">Contact</a>
-      </div>
+      <p class="footer-note">Licensed real estate agent in Australia. Information is indicative only and subject to change.</p>
     </div>
-  </footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="testimonials.html">Testimonials</a>      <a href="videos.html">Videos</a>      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
 

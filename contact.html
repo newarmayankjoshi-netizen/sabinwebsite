@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none';" />
   <title>Contact | Sabin Shrestha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,12 +12,14 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="index.html" class="logo">Sabin Shrestha</a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="testimonials.html">Testimonials</a>
+        <a href="videos.html">Videos</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -23,13 +27,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <span class="eyebrow">Contact</span>
-        <h1>Let’s plan your next property move</h1>
-        <p>Whether you’re buying your first home, or investing, I’m here to guide you every step of the way.</p>
+        <h1>Let's plan your next property move</h1>
+        <p>Whether you're buying your first home, or investing, I'm here to guide you every step of the way.</p>
         <p>Reach out today for expert advice, local insight, and a smooth, rewarding experience.</p>
       </div>
     </section>
@@ -53,22 +57,22 @@
             <span>Truganina, Melbourne VIC</span>
           </div>
         </div>
-        <form class="contact-form">
+        <form id="contact-form" class="contact-form" action="#" method="post" novalidate autocomplete="off">
           <label>
             Name
-            <input type="text" placeholder="Your name" />
+            <input id="contact-name" name="name" type="text" placeholder="Your name" required />
           </label>
           <label>
             Email
-            <input type="email" placeholder="Your email" />
+            <input id="contact-email" name="email" type="email" placeholder="Your email" required />
           </label>
           <label>
             Phone
-            <input type="tel" placeholder="Your phone" />
+            <input id="contact-phone" name="phone" type="tel" placeholder="Your phone" />
           </label>
           <label>
             Message
-            <textarea rows="5" placeholder="Tell me about your enquiry"></textarea>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your enquiry" required></textarea>
           </label>
           <button type="submit" class="button button-primary">Send Message</button>
         </form>
@@ -77,16 +81,24 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>© 2026 Aro Real Estate</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p>© 2026 Sabin Shrestha</p>
+      <p class="footer-note">Licensed real estate agent in Australia. Information is indicative only and subject to change.</p>
     </div>
-  </footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="testimonials.html">Testimonials</a>      <a href="videos.html">Videos</a>      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
+
+
+
+
 
