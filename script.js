@@ -70,6 +70,14 @@ submitFormAsEmail(document.getElementById('appraisal-form'), 'Website appraisal 
 ]);
 
 const reviewStorageKey = 'sabin_testimonial_reviews';
+const reviewResetKey = 'sabin_testimonial_reviews_reset_v1';
+
+function resetStoredReviewsOnce() {
+  if (!localStorage.getItem(reviewResetKey)) {
+    localStorage.removeItem(reviewStorageKey);
+    localStorage.setItem(reviewResetKey, '1');
+  }
+}
 
 function getStoredReviews() {
   try {
@@ -85,7 +93,7 @@ function saveStoredReviews(reviews) {
 
 function createReviewCard(review) {
   const card = document.createElement('article');
-  card.className = 'testimonial-card review-card';
+  card.className = 'review-card';
 
   const message = document.createElement('p');
   message.textContent = review.message;
@@ -107,20 +115,56 @@ function createReviewCard(review) {
   return card;
 }
 
+function createHomeReviewCard(review) {
+  const card = document.createElement('article');
+  card.className = 'testimonial-card';
+
+  const message = document.createElement('p');
+  message.textContent = review.message;
+  card.appendChild(message);
+
+  const meta = document.createElement('div');
+  meta.className = 'testimonial-meta';
+
+  const name = document.createElement('strong');
+  name.textContent = review.name;
+  meta.appendChild(name);
+
+  const rating = document.createElement('span');
+  rating.className = 'rating';
+  rating.textContent = `${review.rating} ★`;
+  meta.appendChild(rating);
+
+  card.appendChild(meta);
+  return card;
+}
+
+function renderHomeReviews() {
+  const container = document.getElementById('home-testimonial-slider');
+  if (!container) return;
+  const reviews = getStoredReviews().filter((review) => Number(review.rating) === 5);
+  const topReviews = reviews.slice(-2).reverse();
+  if (!topReviews.length) return;
+  container.innerHTML = '';
+  topReviews.forEach((review) => {
+    container.appendChild(createHomeReviewCard(review));
+  });
+}
+
 function renderStoredReviews() {
   const container = document.getElementById('user-reviews');
   if (!container) return;
-  const reviews = getStoredReviews();
-  const visibleReviews = reviews.filter((review) => Number(review.rating) >= 4);
+  const allReviews = getStoredReviews().filter((review) => Number(review.rating) === 5);
+  const reviews = allReviews.slice(-5).reverse();
   container.innerHTML = '';
-  if (!visibleReviews.length) {
+  if (!reviews.length) {
     const empty = document.createElement('p');
     empty.className = 'review-empty';
-    empty.textContent = 'No 4-star or higher reviews are available yet.';
+    empty.textContent = 'No 5-star reviews are available yet. Leave the first one below.';
     container.appendChild(empty);
     return;
   }
-  visibleReviews.slice().reverse().forEach((review) => {
+  reviews.forEach((review) => {
     container.appendChild(createReviewCard(review));
   });
 }
@@ -144,12 +188,15 @@ function setupReviewForm() {
     reviews.push({ name, rating, message, submittedAt: new Date().toISOString() });
     saveStoredReviews(reviews);
     renderStoredReviews();
+    renderHomeReviews();
     form.reset();
   });
 }
 
+resetStoredReviewsOnce();
 setupReviewForm();
 renderStoredReviews();
+renderHomeReviews();
 
 const agentPhoto = document.querySelector('.agent-photo');
 if (agentPhoto) {

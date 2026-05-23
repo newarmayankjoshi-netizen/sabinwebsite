@@ -142,7 +142,7 @@ select {
   place-items: center;
   text-align: center;
   color: white;
-  background-image: linear-gradient(180deg, rgba(5, 13, 21, 0.6), rgba(5, 13, 21, 0.8)),
+  background-image: linear-gradient(180deg, rgba(5, 13, 21, 0.35), rgba(5, 13, 21, 0.5)),
     url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center;
@@ -151,7 +151,7 @@ select {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 17, 28, 0.2) 0%, rgba(7, 17, 28, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(7, 17, 28, 0.12) 0%, rgba(7, 17, 28, 0.55) 100%);
 }
 
 .hero-content {
@@ -177,11 +177,30 @@ select {
 }
 
 .hero p {
-  margin: 1.5rem auto 2rem;
+  margin: 1.5rem auto 1.25rem;
   max-width: 680px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 1.05rem;
   line-height: 1.8;
+}
+
+.hero-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 auto 0.5rem;
+  padding: 0.95rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.hero-rating {
+  color: var(--primary);
+  letter-spacing: 0.12em;
 }
 
 .hero-actions {
@@ -268,6 +287,11 @@ select {
 .testimonial-slider {
   display: grid;
   gap: 1rem;
+}
+
+.testimonials .testimonial-slider {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
 }
 
 .testimonial-card {
@@ -576,6 +600,35 @@ select {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover {
+  background: rgba(245, 166, 35, 0.18);
+  color: var(--primary);
+}
+
+.footer-social svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 @media (max-width: 900px) {
